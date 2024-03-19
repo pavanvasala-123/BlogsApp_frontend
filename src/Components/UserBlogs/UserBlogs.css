@@ -1,0 +1,37 @@
+.blogsCon{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.blog{
+    list-style-type: none;
+    box-shadow: 2px 2px 5px #888888;
+    padding: 10px;
+
+}
+.blog p {
+    text-align: left;
+}
+.blog h3{
+    text-align: left;
+}
+.myBlogscon{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
+.buttonsCon{
+    display: flex;
+    justify-content: space-evenly;
+    cursor: pointer;
+}
+.tiletimeCon{
+    display: flex;
+    justify-content: space-between;
+}
+.tiletimeCon p{
+    color: gray;
+}
