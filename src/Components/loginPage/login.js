@@ -3,14 +3,16 @@ import Cookies from "js-cookie";
 import "../loginPage/login.css";
 import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
+import { useAuth } from "../AuthContext";
 
-function App() {
+function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const [mailerror, setMailError] = useState(false);
   const [passwordErr, setPasswordErr] = useState(false);
 
+  const { login } = useAuth();
   const navigate = useNavigate();
 
   const handleLogin = async () => {
@@ -23,7 +25,7 @@ function App() {
 
     try {
       const response = await fetch(
-        "https://blogsapp-backend.onrender.com/user/login",
+        "http://localhost:3003/user/login",
         {
           method: "POST",
           headers: {
@@ -35,12 +37,11 @@ function App() {
 
       if (response.ok) {
         // Handle successful login (e.g., redirect to dashboard)
-
+        const data = await response.json();
+        // console.log(data)
+        login(data);
         toast.success("Login Successful");
-
-        const token = await response.json();
-        Cookies.set("token", token, { secure: true, sameSite: "strict" });
-        return navigate("/myblogs");
+        navigate("/myblogs");
       } else {
         // Handle login failure (e.g., display error message)
         console.error("Login failed:", response.statusText);
@@ -65,9 +66,7 @@ function App() {
             onChange={(e) => setEmail(e.target.value)}
             required
           />
-
-          {mailerror ? <p className="errormsg">* Required Field</p> : ""}
-
+          {mailerror && <p className="errormsg">* Required Field</p>}
           <label htmlFor="password">Password:</label>
           <input
             type="password"
@@ -77,8 +76,7 @@ function App() {
             onChange={(e) => setPassword(e.target.value)}
             required
           />
-          {passwordErr ? <p className="errormsg">Required Field</p> : ""}
-
+          {passwordErr && <p className="errormsg">Required Field</p>}
           <button type="button" onClick={handleLogin}>
             Login
           </button>
@@ -89,4 +87,5 @@ function App() {
   );
 }
 
-export default App;
+export default Login;
+

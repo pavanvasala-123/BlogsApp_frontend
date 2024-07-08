@@ -1,26 +1,27 @@
-import React from 'react'
-import '../Components/Pagination.css'
 
-function Pagination({PostPerPage , totalPosts,Paginate}) {
 
-    const numbers = [];
-    
-    for(let i = 1; i <= Math.ceil(totalPosts/ PostPerPage) ; i++){
-        numbers.push(i)
-        console.log(i)
-    }
+import React from 'react';
+import '../Components/Pagination.css';
 
+function Pagination({ currentPage, totalPages, paginate }) {
   return (
-    
-        <ul style={{display:'flex', justifyContent:'center' , alignItems:'center'}}>
-            {numbers.map(eachnumber =>
-             
-                <button  onClick={()=>Paginate(eachnumber)}>{eachnumber}</button>
-                
-            )}
-        </ul>
-    
-  )
+    <div className="pagination">
+      <button 
+        onClick={() => paginate(currentPage - 1)} 
+        disabled={currentPage === 1}
+      >
+        Previous
+      </button>
+      <span className="current-page">{currentPage}</span>
+      <button 
+        onClick={() => paginate(currentPage + 1)} 
+        disabled={currentPage === totalPages}
+      >
+        Next
+      </button>
+    </div>
+  );
 }
 
-export default Pagination
+export default Pagination;
+
