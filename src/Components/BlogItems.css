@@ -6,7 +6,7 @@ ul{
 }
 li{
     list-style-type: none;
-    width: 100%;
+    /* width: 100%; */
     box-shadow: 2px 2px 5px #888888;
     margin-bottom: 10px;
     padding: 10px;
@@ -23,5 +23,29 @@ li p {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: flex-end;
 }
+.blogsCon h1{
+    margin: 20px 0;
+
+}
+.blogsCon .loader{
+    text-align: center;
+    margin-top: 50%;
+ }
+
+ @media screen and (max-width: 768px){
+    .blogsCon .circles-loading{
+       margin:auto;
+    }
+    ul{
+        width: 100%;
+      
+       
+        
+    }
+    li{
+       width: 90%;
+       
+    }
+ }

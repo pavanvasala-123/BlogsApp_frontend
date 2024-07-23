@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react";
 import BlogItems from "../BlogItems";
 import Pagination from "../Pagination";
+import './Home.css'
 
 export const Home = () => {
   const [blogs, setBlogs] = useState([]);
@@ -15,7 +16,7 @@ export const Home = () => {
       try {
         setLoader(true);
         const res = await fetch(
-          `http://localhost:3003/blogs?page=${currentPage}&limit=${postPerPage}`
+          `https://blogsapp-backend.onrender.com/blogs?page=${currentPage}&limit=${postPerPage}`
         );
         const data = await res.json();
         setLoader(false);
@@ -36,13 +37,13 @@ export const Home = () => {
   };
 
   return (
-    <div>
+    <div className="home">
       <BlogItems currentPosts={blogs} loader={loader} />
-      <Pagination
+      { blogs && <Pagination
         currentPage={currentPage}
         totalPages={totalPages}
         paginate={paginate}
-      />
+      />}
     </div>
   );
 };

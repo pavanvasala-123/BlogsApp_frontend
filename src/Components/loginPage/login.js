@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Cookies from "js-cookie";
+
 import "../loginPage/login.css";
 import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
@@ -24,16 +24,13 @@ function Login() {
     }
 
     try {
-      const response = await fetch(
-        "http://localhost:3003/user/login",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ email, password }),
-        }
-      );
+      const response = await fetch("https://blogsapp-backend.onrender.com/user/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email, password }),
+      });
 
       if (response.ok) {
         // Handle successful login (e.g., redirect to dashboard)
@@ -66,7 +63,7 @@ function Login() {
             onChange={(e) => setEmail(e.target.value)}
             required
           />
-          {mailerror && <p className="errormsg">* Required Field</p>}
+          {mailerror && <p className="errormsg">Required Email Field</p>}
           <label htmlFor="password">Password:</label>
           <input
             type="password"
@@ -76,7 +73,7 @@ function Login() {
             onChange={(e) => setPassword(e.target.value)}
             required
           />
-          {passwordErr && <p className="errormsg">Required Field</p>}
+          {passwordErr && <p className="errormsg">Required Email Field</p>}
           <button type="button" onClick={handleLogin}>
             Login
           </button>
@@ -88,4 +85,3 @@ function Login() {
 }
 
 export default Login;
-

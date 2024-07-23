@@ -1,6 +1,6 @@
 .signup-container {
     max-width: 400px;
-    margin: 100px auto;
+    margin: 12% auto;
     padding: 20px;
     background-color: #fff;
     border-radius: 8px;
@@ -9,6 +9,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
   }
   
   form {
@@ -52,3 +53,8 @@
     text-decoration: none;
   }
   
+  @media screen and (max-width:768px){
+    .signup-container{
+      margin-top: 60%;
+    }
+  }

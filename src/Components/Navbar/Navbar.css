@@ -2,29 +2,32 @@
 .navbar {
     background-color: #007bff;
     padding: 15px 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+   
+    
   }
   
   .navbar-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    max-width: 1200px;
     margin: 0 auto;
+    /* width: 100%; */
   }
   
   .navbar-logo {
     color: #fff;
     font-size: 24px;
     text-decoration: none;
-  }
-  
-  .menu-icon {
-    display: none; /* Hide the menu icon for larger screens */
+    margin-left: 50px;
   }
   
   .navbar-links {
     display: flex;
     align-items: center;
+    margin-right: 50px;
   }
   
   .nav-link {
@@ -36,30 +39,46 @@
   .logoutBtn{
     background-color: red;
     cursor: pointer;
+    margin-left: 20px;
+  }
+
+  .active{
+    background-color: #7600DC;
+    color: white;
+    width: 90px;
+    border-radius: 4px;
+    text-align: center;
+    padding: 5px;
+    
   }
   
   /* Add styles for smaller screens */
   @media screen and (max-width: 768px) {
-    .menu-icon {
-      display: block;
-      cursor: pointer;
+    
+    .navbar-logo{
+      margin-left: 10px;
+    }
+    .active{
+      padding: 0;
     }
   
     .navbar-links {
-      display: none;
       flex-direction: column;
-      position: absolute;
-      top: 60px;
-      left: 0;
-      width: 100%;
-      background-color: #007bff;
+      margin-right: 50px;
+
     }
   
     .nav-link {
       margin: 0;
       padding: 15px;
-      border-bottom: 1px solid #0056b3;
+    
       text-align: center;
     }
+    .navbar-container{
+      display: flex;
+      justify-content: space-between;
+     
+    }
   }
+  
   

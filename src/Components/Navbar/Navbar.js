@@ -1,8 +1,9 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import '../Navbar/Navbar.css';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../AuthContext';
+
 
 const Navbar = () => {
   const { isAuthenticated, logout } = useAuth();
@@ -16,33 +17,34 @@ const Navbar = () => {
   return (
     <nav className="navbar">
       <div className="navbar-container">
-        <Link to="/blogs" className="navbar-logo">
+        <Link to="/" className="navbar-logo" >
           BLOG APP
         </Link>
         <div className="navbar-links">
           {isAuthenticated ? (
             <>
-              <Link to="/myblogs" className="nav-link">
+              <NavLink to="/myblogs" activeClassName="active" className="nav-link">
                 My Blogs
-              </Link>
-              <Link to="/createblog" className="nav-link">
+              </NavLink>
+              <NavLink to="/createblog" className="nav-link" activeClassName="active">
                 Create Blog
-              </Link>
+              </NavLink>
               <button onClick={handleLogout} className="logoutBtn">
                 Logout
               </button>
             </>
           ) : (
             <>
-              <Link to="/login" className="nav-link">
+              <NavLink to="/login" activeClassName="active" className="nav-link">
                 Login
-              </Link>
-              <Link to="/signup" className="nav-link">
+              </NavLink>
+              
+              <NavLink to="/signup" className="nav-link" activeClassName="active">
                 Sign Up
-              </Link>
-              <Link to="/blogs" className="nav-link">
+              </NavLink>
+              <NavLink to="/" className="nav-link" activeClassName="active">
                 All Blogs
-              </Link>
+              </NavLink>
             </>
           )}
         </div>

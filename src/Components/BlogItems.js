@@ -57,6 +57,7 @@ function BlogItems({ currentPosts, loader }) {
           wrapperStyle={{}}
           wrapperClass=""
           visible={true}
+          className="loader"
         />
       ) : (
         <ul>

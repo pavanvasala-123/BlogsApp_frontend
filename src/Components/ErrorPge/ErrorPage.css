@@ -1,0 +1,34 @@
+.error-page-con{
+
+    text-align: center;
+    height: 100vh;
+}
+.error-page-con img{
+    width: 500px;
+   margin: 50px 500px;
+  
+}
+.error-page-con button{
+  
+    margin: 0 500px;
+   
+}
+
+@media screen and (max-width:768px){
+    .error-page-con{
+
+       
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .error-page-con img{
+        width: 200px; 
+      
+    }
+    .error-page-con button{
+        width: 200px;
+    }
+
+}

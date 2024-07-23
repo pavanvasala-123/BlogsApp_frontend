@@ -111,6 +111,8 @@ import PrivateRoutes from './Components/privateRoutes';
 import UserBlogs from './Components/UserBlogs/UserBlogs';
 import { AuthProvider } from './Components/AuthContext';
 import UpdateBlogForm from './Components/UpdateBlog/UpdateBlog';
+import ErrorPage from './Components/ErrorPge/ErrorPage';
+
 
 function App() {
   return (
@@ -118,14 +120,17 @@ function App() {
       <BrowserRouter>
         <Navbar />
         <Routes>
-          <Route path="/blogs" element={<Home />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<Signup />} />
+          <Route path="/" element={<Home />} errorElement = {<ErrorPage/>}/>
+          <Route path="/login" element={<Login />} errorElement = {<ErrorPage/>}/>
+          <Route path="/signup" element={<Signup />} errorElement = {<ErrorPage/>}/>
           <Route element={<PrivateRoutes />}>
-            <Route path="/createblog" element={<BlogForm />} exact />
-            <Route path="/myblogs" element={<UserBlogs />} exact />
-            <Route path= '/update/:id' element={<UpdateBlogForm />} exact />
+            <Route path="/createblog" element={<BlogForm/>} errorElement = {<ErrorPage/>} />
+            <Route path="/myblogs" element={<UserBlogs />}  errorElement = {<ErrorPage/>}/>
+            <Route path= '/update/:id' element={<UpdateBlogForm/>}
+              errorElement = {<ErrorPage/>}
+              />
           </Route>
+          <Route path='*' element = {<ErrorPage/>}/>
         </Routes>
       </BrowserRouter>
     </AuthProvider>

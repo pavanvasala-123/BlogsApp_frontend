@@ -23,7 +23,7 @@ const UpdateBlogForm = () => {
       }
 
       try {
-        const response = await fetch(`http://localhost:3003/blogs/blog/${id}`, {
+        const response = await fetch(`https://blogsapp-backend.onrender.com/blogs/blog/${id}`, {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
@@ -58,7 +58,7 @@ const UpdateBlogForm = () => {
 
     if (title && author && description) {
       try {
-        const response = await fetch(`http://localhost:3003/blogs/blog/${id}`, {
+        const response = await fetch(`https://blogsapp-backend.onrender.com/blogs/blog/${id}`, {
           method: 'PUT',
           headers: {
             'Content-Type': 'application/json',
